@@ -7,9 +7,17 @@ app.use(express.static("public"))
 
 // define the first route
 app.get("/api", function (req, res) {
-    res.send("{\"apiVersion\":\"0.999\", \"host\":\"" + req.headers.host + "\"}")
+    let s = "{ \"apiVersion\" : \"0.999\" ,"
+        + " \"host\" : \"" + req.headers.host + "\", "
+        + " \"key\" : \"" + process.env.REDISCACHEKEY + "\", "
+        + " \"host\" : \"" + process.env.REDISCACHEHOSTNAME + "\", "
+        + "}";
+    res.send(s)
 });
 
 // start the server listening for requests
 app.listen(process.env.PORT || 3000,
-    () => console.log("Server is listening on port 3000 (possibly)..."));
+    () => {
+        console.log("Server is listening on port 3000 (possibly)...");
+    }
+);
