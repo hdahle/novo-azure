@@ -7,7 +7,7 @@ app.use(express.static("public"))
 
 // define the first route
 app.get("/api", function (req, res) {
-    let s = "{ \"apiVersion\" : \"0.999\" ,"
+    let s = "{ \"api\" : \"0.0.1\" ,"
         + " \"host\" : \"" + req.headers.host + "\", "
         + " \"key\" : \"" + process.env.REDISCACHEKEY + "\", "
         + " \"host\" : \"" + process.env.REDISCACHEHOSTNAME + "\", "
