@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/f6c76c8b-c832-4108-bf19-947065e714bb/resourceGroups/novo-web-test-resource-grp/providers/Microsoft.Web/sites/novo-web-test",
+    "appService.deploySubpath": ""
+}

@@ -1,11 +1,15 @@
-const http = require('http');
+// create an express app
+const express = require("express")
+const app = express()
 
-const server = http.createServer((request, response) => {
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end("Hello World!");
+// use the express-static middleware
+app.use(express.static("public"))
+
+// define the first route
+app.get("/api", function (req, res) {
+    res.send("{\"apiVersion\":\"0.999\", \"host\":\"" + req.headers.host + "\"}")
 });
 
-const port = process.env.PORT || 1337;
-server.listen(port);
-
-console.log("Server running at http://localhost:%d", port);
+// start the server listening for requests
+app.listen(process.env.PORT || 3000,
+    () => console.log("Server is listening on port 3000 (possibly)..."));
